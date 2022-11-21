@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ECV.Models.Yetenekler>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">YETENEKLER Listeleniyor</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Yetenek Adı</th>
+                        <th>Yüzde</th>
+                      
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.YID</td>
+                            <td>@item.adi</td>
+                            <td>@item.yüzde</td>
+                            
+                            <td>
+                                <div class="btn-group">
+                                    <a href="/CV/YetenekSil?YID=@item.YID" class="btn btn-danger">Sil</a>
+                                    <a href="/CV/YetenekDuzenle?YID=@item.YID" class="btn btn-warning">Düzenle</a>
+                                </div>
+                            </td>
+
+
+
+                        </tr>
+
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Yetenek Adı</th>
+                        <th>Yüzde</th>
+
+                        <th>İşlem</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+</div>
+

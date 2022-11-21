@@ -1,0 +1,53 @@
+﻿@model ECV.Models.SiteAyar
+    <title>@Model.title</title>
+<meta name="title" content="@Model.title">
+<meta name="description" content="@Model.aciklama">
+<meta name="keywords" content="@Model.keywords">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="Turkish">
+ @if (Model.anarenk == "siyah")
+ {
+    <link rel='stylesheet' type='text/css' href='~/css/color-black.css'>
+
+ }
+@if (Model.anarenk == "mavi")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-blue.css'>
+
+}
+@if (Model.anarenk == "koyupembe")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-dark-pink.css'>
+
+}
+@if (Model.anarenk == "kahverengi")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-default.css'>
+
+}
+@if (Model.anarenk == "yeşil")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-green.css'>
+
+}
+@if (Model.anarenk == "pembe")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-pink.css'>
+
+}
+@if (Model.anarenk == "mor")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-purple.css'>
+
+}
+@if (Model.anarenk == "kırmızı")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-red.css'>
+
+}
+@if (Model.anarenk == "turkuaz")
+{
+    <link rel='stylesheet' type='text/css' href='~/css/color-turquoise.css'>
+
+}

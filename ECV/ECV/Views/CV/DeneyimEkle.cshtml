@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "DeneyimEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+
+@section Baslik{ DENEYİM EKLE }
+@section sitemap{DENEYİM EKLE }
+@section title{DENEYİM EKLE}
+@model ECV.Models.Deneyim
+
+@Html.Action("_DeneyimListe", "CV")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">DENEYİM EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("DeneyimEkle", "CV", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Firma Adı</label>
+                        <input type="text" class="form-control" id="firmaAdi" name="firmaAdi" value="" placeholder="Ör:Yapı Kredi">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ünvan</label>
+                        <input type="text" class="form-control" id="unvan" name="unvan" value="" placeholder="Ör:Stajyer">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Yıl Aralığı</label>
+                        <input type="text" class="form-control" id="yil" name="yil" value="" placeholder="Ör:2019-2020">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kazanımlar/Tecrübe</label>
+                        <input type="text" class="form-control" id="tecrübe" name="tecrübe" value="" placeholder="Ör:Asp.Net MVC vb.">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

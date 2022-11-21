@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "EgitimDuzenle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ EĞİTİM DÜZENLE }
+@section sitemap{EĞİTİM DÜZENLE }
+@section title{EĞİTİM DÜZENLE}
+@model ECV.Models.EgitimBilgi
+
+
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">EĞİTİM DÜZENLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("EgitimDuzenle", "CV", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            { @Html.HiddenFor(m => m.EID)
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Tür</label>
+                        <input type="text" class="form-control" id="egitimTürü" name="egitimTürü" value="@Model.egitimTürü"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Bölüm</label>
+                        <input type="text" class="form-control" id="bölüm" name="bölüm" value="@Model.bölüm"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Okul</label>
+                        <input type="text" class="form-control" id="okul" name="okul" value="@Model.okul"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Yıl</label>
+                        <input type="text" class="form-control" id="yil" name="yil" value="@Model.yil" >
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

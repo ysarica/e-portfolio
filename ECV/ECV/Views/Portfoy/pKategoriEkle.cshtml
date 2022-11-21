@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "pKategoriEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ PORTFOY KATEGORİ EKLE }
+@section sitemap{PORTFOY KATEGORİ EKLE }
+@section title{PORTFOY KATEGORİ EKLE}
+@model ECV.Models.PortfoyKategori
+
+@Html.Action("_pKategoriListe", "Portfoy")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">YORUM EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("pKategoriEkle", "Portfoy", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kategori Adı</label>
+                        <input type="text" class="form-control" id="kategoriAdi" name="kategoriAdi" value="" placeholder="Ör:Tasarım">
+                    </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+           
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+
+
+

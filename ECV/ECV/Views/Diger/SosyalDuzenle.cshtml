@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "SosyalDuzenle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+
+@section Baslik{ SOSYAL DÜZENLE }
+@section sitemap{SOSYAL DÜZENLE }
+@section title{SOSYAL DÜZENLE}
+@model ECV.Models.Sosyal
+
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">SOSYAL DÜZENLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("SosyalDuzenle", "Diger", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            { @Html.HiddenFor(m => m.SID)
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">İCON</label>
+                        <input type="text" class="form-control" id="icon" name="icon" value="@Model.icon">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">LİNK</label>
+                        <input type="text" class="form-control" id="link" name="link" value="@Model.link">
+                    </div>
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

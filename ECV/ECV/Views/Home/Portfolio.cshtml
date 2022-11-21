@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Portfolio";
+}
+
+<!--close button-->
+<a href='/Home/Index' class='close-btn'>
+    <span></span>
+    <span></span>
+</a>
+<!--/close button-->
+<!--preloader-->
+<div id='preloader'>
+
+    <div class='loader'>
+        <img src='img/load.gif' alt='symp'>
+    </div>
+
+</div>
+<!--/preloader-->
+
+
+<div id='wrapper'>
+    @foreach (var a in ViewBag.port)
+    {
+        <section class='single-work'>
+
+            <div class='container'>
+
+
+                <div class='row'>
+
+                    <div class='col-md-8'>
+
+                        <img src='@a.resim' alt='symp'>
+
+                    </div>
+
+
+                    <div class='col-md-4'>
+
+                        <ul class='work-info'>
+
+                            <li>
+
+                                <h4><i class='ion-ionic'></i>Müşteri</h4>
+
+                                <p>@a.kime</p>
+
+                            </li>
+
+                            <li>
+
+                                <h4><i class='ion-ios-calendar-outline'></i>Tarih</h4>
+
+                                <p>@a.tarih</p>
+
+                            </li>
+
+
+
+                            <li>
+
+                                <h4><i class='ion-ios-clock-outline'></i>Teslim Süresi</h4>
+
+                                <p>@a.süre</p>
+
+                            </li>
+
+
+
+
+
+
+                        </ul>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class='work-content'>
+
+                    <div class='block'>
+
+                        <h4>Bilgi</h4>
+
+                        <p>
+                            @Html.Raw(a.aciklama)
+                        </p>
+
+                    </div>
+
+                 
+
+                </div>
+
+
+            </div>
+
+        </section>
+    }
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                        {
+                            <li>
+                                <a href='@d.link'>
+                                    <i class='ion-social-@d.icon'></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+
+</div>

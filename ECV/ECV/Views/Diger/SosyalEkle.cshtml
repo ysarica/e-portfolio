@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "SosyalEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ SOSYAL EKLE }
+@section sitemap{SOSYAL EKLE }
+@section title{SOSYAL EKLE}
+
+@model ECV.Models.Sosyal
+
+@Html.Action("_SosyalListe", "Diger")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">SOSYAL EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("SosyalEkle", "Diger", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">İcon</label>
+                        <input type="text" class="form-control" id="icon" name="icon" value="" placeholder="Ör:facebook">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Link</label>
+                        <input type="text" class="form-control" id="link" name="link" value="" placeholder="Ör:fb.com/adSoyad">
+                    </div>
+                    
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

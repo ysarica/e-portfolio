@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html class='no-js'>
+<head>
+  
+   
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' href='/css/ionicons.min.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.carousel.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.theme.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.transitions.css'>
+    <link rel='stylesheet' type='text/css' href='/css/magnific-popup.css'>
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    @Html.Action("_Meta", "Home")
+</head>
+<body>
+    <!--=============================================================================
+        Preloader
+    ===============================================================================-->
+    <!--=============================================================================
+        Main Wrapper
+    ===============================================================================-->
+    <div id='wrapper'>
+
+        @RenderBody()
+
+        </div>
+        <!--=============================================================================
+            JavaScript Files
+        ===============================================================================-->
+        <script src='/js/jquery.min.js'></script>
+        <script src='/js/jquery.stellar.min.js'></script>
+        <script src='/js/modernizr.js'></script>
+        <script src='/js/owl.carousel.min.js'></script>
+        <script src='/js/jquery.shuffle.min.js'></script>
+        <script src='/js/jquery.magnific-popup.min.js'></script>
+        <script src='/js/validator.min.js'></script>
+        <script src='/js/smoothscroll.js'></script>
+        <script src='/js/script.js'></script>
+    @*<script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "+905319574200", // WhatsApp numaranızı buraya girin
+            call_to_action: "Merhaba, nasıl yardımcı olabilirim?", // Görünecek metin
+            position: "right", // Position may be 'right' or 'left'
+        };
+        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+    </script>*@
+    @*<script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "+950319574200", // WhatsApp numaranızı buraya girin
+            call_to_action: "Merhaba, nasıl yardımcı olabilirim?", // Görünecek metin
+            position: "right", // Position may be 'right' or 'left'
+        };
+        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+    </script>*@
+
+</body>
+</html>

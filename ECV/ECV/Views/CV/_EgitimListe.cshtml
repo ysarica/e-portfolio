@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ECV.Models.EgitimBilgi>
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">EĞİTİM Listeleniyor</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tür</th>
+                        <th>Okul</th>
+                        <th>Bölüm</th>
+                        <th>Yıl</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.EID</td>
+                            <td>@item.egitimTürü</td>
+                            <td>@item.okul</td>
+                            <td>@item.bölüm</td>
+                            <td>@item.yil</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="/CV/EgitimSil?EID=@item.EID" class="btn btn-danger">Sil</a>
+                                    <a href="/CV/EgitimDuzenle?EID=@item.EID" class="btn btn-warning">Düzenle</a>
+                                </div>
+                            </td>
+
+
+
+                        </tr>
+
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tür</th>
+                        <th>Okul</th>
+                        <th>Bölüm</th>
+                        <th>Yıl</th>
+                        <th>İşlem</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+</div>

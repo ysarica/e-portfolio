@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+}
+<!--close button-->
+<a href='/Home/Index' class='close-btn'>
+    <span></span>
+    <span></span>
+</a>
+<!--/close button-->
+<!--preloader-->
+<div id='preloader'>
+
+    <div class='loader'>
+        <img src='/img/load.gif' alt='symp'>
+    </div>
+
+</div>
+<!--/preloader-->
+<!--=============================================================================
+           Blog Section
+       ===============================================================================-->
+<section>
+
+    <div class='container'>
+
+        <div class='row'>
+
+            <div class='col-md-6 col-md-offset-3'>
+                <div class='section-header text-center'>
+                    <br /><br />
+                    <br /><br />
+                    <h2>Bloğum</h2>
+
+                    <!--divider-->
+                    <div class='divider-draft center'></div>
+                    <!--/divider-->
+
+                    <p>
+                        Bu benim düşüncelerimin yaşadığı blogum. Hakkımda daha fazla bilgi edinmek için göz atın.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class='posts-block section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-md-8'>
+
+                    @foreach (var b in ViewBag.blog)
+                    {
+                        <div class='post'>
+
+                            <div class='media'>
+                                <img alt='@b.baslik' src='@b.resim'>
+                            </div>
+
+                            <div class='content'>
+
+                                <h4>
+                                    <a href='/Home/BlogDetay?baslik=@b.baslik'>
+                                        @b.baslik
+                                    </a>
+                                </h4>
+
+                                <ul class='post-icons'>
+
+                                    <li>
+                                        <i class='ion-ios-person'></i>
+                                        <span>@ViewBag.ad</span>
+                                    </li>
+
+                                    <li>
+                                        <i class='ion-ios-clock'></i>
+                                        <span>@b.tarih</span>
+                                    </li>
+
+                                    <li>
+                                        <i class='ion-ios-folder'></i>
+                                        <span>@b.kategoriAd</span>
+                                    </li>
+
+
+
+                                </ul>
+
+                                <p>
+                                    @Html.Raw(b.ozetaciklama)...
+                                </p>
+
+                                <a href='/Home/BlogDetay?baslik=@b.baslik' class='read-more'>
+                                    Daha Fazlası
+                                    <i class='ion-ios-arrow-thin-right'></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    }
+
+
+                </div>
+
+                <div class='col-md-4'>
+
+                    <div class='sidebar'>
+
+
+
+                        <div class='sidebar-widget'>
+                            <div class='categories-widget'>
+
+                                <div class='widget-header'>
+                                    <h4>
+                                        <i class='ion-ios-folder'></i> Kategoriler
+                                    </h4>
+                                </div>
+
+                                <ul class='sidebar-list'>
+
+                                    <li>
+                                        <a href='/Home/Blog?kategoriAd=0'>Tümü</a>
+                                    </li>
+                                    @foreach (var b in ViewBag.blogkategori)
+                                    {
+                                    <li>
+                                        <a href='/Home/Blog?kategoriAd=@b.kategoriAdi'>@b.kategoriAdi</a>
+                                    </li>
+                                    }
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class='sidebar-widget'>
+
+                            <div class='widget-header'>
+                                <h4>
+                                    <i class='ion-document'></i>
+                                    Son Gönderiler
+                                </h4>
+                            </div>
+
+
+                            <ul class='sidebar-list'>
+                                @foreach (var c in ViewBag.blogr)
+                                {
+                                <li>
+                                    <a href='/Home/BlogDetay?baslik=@c.baslik'>
+                                        @Html.Raw(c.baslik)
+                                    </a>
+                                </li>
+                                }
+
+                            </ul>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                        {
+                            <li>
+                                <a href='@d.link'>
+                                    <i class='ion-social-@d.icon'></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+
+</section>
+<!--=============================================================================
+    /Blog Section
+===============================================================================-->

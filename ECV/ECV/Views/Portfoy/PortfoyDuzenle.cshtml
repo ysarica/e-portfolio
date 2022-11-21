@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "PortfoyDuzenle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "BlogDuzenle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ PORTFOY DUZENLE }
+@section sitemap{PORTFOY DUZENLE }
+@section title{PORTFOY DUZENLE}
+@model ECV.Models.Portfoy       
+
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">BLOG DUZENLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("PortfoyDuzenle", "Portfoy", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(m => m.PID)
+
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kategori Adı</label>
+                        <select id="kategori" name="kategori" class="form-control">
+                            <option value="@Model.kategori">@Model.kategori</option>
+                            @foreach (var item in ViewBag.pKategori)
+                            {
+                                <option value="@item.kategoriAdi">@item.kategoriAdi</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+
+                            <img src="@Model.resim" class="img-fluid mb-2" alt="white sample" />
+
+                        </div>
+                        <label for="exampleInputFile">Resim Yükle</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resim" name="resim">
+                                <label class="custom-file-label" for="exampleInputFile">Kapak Resim</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">.PNG vb.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kim İçin Yapıldı</label>
+                        <input type="text" class="form-control" id="kime" name="kime" value="@Model.kime" placeholder="Ör:Arçelik A.Ş">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Ne Kadar Sürede</label>
+                        <input type="text" class="form-control" id="süre" name="süre" value="@Model.süre"  placeholder="Ör:2 Gün">
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1">Açıklama</label>
+
+                            <textarea class="textarea" placeholder="Açıklama..." name="aciklama" id="aciklama"
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@Model.aciklama</textarea>
+                        </div>
+
+                    </div>
+                    </div>
+                <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">Düzenle</button>
+                    </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+
+
+

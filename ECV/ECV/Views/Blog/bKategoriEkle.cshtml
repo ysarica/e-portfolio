@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "bKategoriEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+
+
+@section Baslik{ BLOG KATEGORİ EKLE }
+@section sitemap{BLOG KATEGORİ EKLE }
+@section title{BLOG KATEGORİ EKLE}
+@model ECV.Models.blogKategori
+
+@Html.Action("_bKategoriListe", "Blog")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">BLOG KATEGORİ EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("bKategoriEkle", "Blog", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kategori Adı</label>
+                        <input type="text" class="form-control" id="kategoriAdi" name="kategoriAdi" value="" placeholder="Ör:Tasarım">
+                    </div>
+                  
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

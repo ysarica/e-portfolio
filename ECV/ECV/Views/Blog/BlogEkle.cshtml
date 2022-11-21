@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "BlogEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ BLOG EKLE }
+@section sitemap{BLOG EKLE }
+@section title{BLOG EKLE}
+@model ECV.Models.blog
+
+@Html.Action("_BlogListe", "Blog")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">BLOG EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("BlogEkle", "Blog", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kategori Adı</label>
+                        <select id="kategoriAd" name="kategoriAd" class="form-control">
+                            @foreach (var item in ViewBag.bKategori)
+                            {
+                                <option value="@item.kategoriAdi">@item.kategoriAdi</option>
+                            }
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                       
+                        <label for="exampleInputFile">Resim Yükle</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resim" name="resim">
+                                <label class="custom-file-label" for="exampleInputFile">Kapak Resim</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">.PNG vb.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Başlık</label>
+                        <input type="text" class="form-control" id="baslik" name="baslik"  placeholder="Ör:Logo Nasıl Tasarlanır">
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1">Açıklama Özeti</label>
+
+                            <textarea class="textarea" placeholder="Özet Açıklama..." name="ozetaciklama" id="ozetaciklama"
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1">Açıklama</label>
+
+                            <textarea class="textarea" placeholder="Açıklama..." name="aciklama" id="aciklama"
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        </div>
+
+                       </div>
+                    </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

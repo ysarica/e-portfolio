@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "SiteAyar";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+@section Baslik{ SİTE AYAR }
+@section sitemap{SİTE AYAR }
+@section title{SİTE AYAR}
+@model ECV.Models.SiteAyar
+
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">SOSYAL DÜZENLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("SiteAyar", "Diger", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            { @Html.HiddenFor(m => m.ID)
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Site Başlığı</label>
+                        <input type="text" class="form-control" id="title" name="title" value="@Model.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Site Anahtar Kelimeleri</label>
+                        <input type="text" class="form-control" id="keywords" name="keywords" value="@Model.keywords">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Site Açıklaması</label>
+                        <input type="text" class="form-control" id="aciklama" name="aciklama" value="@Model.aciklama">
+                    </div> 
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Anasayfa Unvan 1</label>
+                        <input type="text" class="form-control" id="ozellik1" name="ozellik1" value="@Model.ozellik1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Anasayfa Unvan 2</label>
+                        <input type="text" class="form-control" id="ozellik2" name="ozellik2" value="@Model.ozellik2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Anasayfa Unvan 3</label>
+                        <input type="text" class="form-control" id="ozellik3" name="ozellik3" value="@Model.ozellik3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Blog Sayfası Önyazisi</label>
+                        <input type="text" class="form-control" id="blog" name="blog" value="@Model.blog">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Hizmet Sayfası Önyazisi</label>
+                        <input type="text" class="form-control" id="hizmet" name="hizmet" value="@Model.hizmet">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Portfoy Sayfası Önyazısı</label>
+                        <input type="text" class="form-control" id="portfoy" name="portfoy" value="@Model.portfoy">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">İletisim Sayfası Önyazısı</label>
+                        <input type="text" class="form-control" id="iletisim" name="iletisim" value="@Model.iletisim">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">İletisim Sayfası Önyazısı</label>
+                        <select id="anarenk" name="anarenk" class="form-control">
+                            <option value="@Model.anarenk">@Model.anarenk</option>
+                            <option value="siyah">siyah</option>
+                            <option value="mavi">mavi</option>
+                            <option value="koyupembe">koyupembe</option>
+                            <option value="kahverengi">kahverengi</option>
+                            <option value="yesil">yesil</option>
+                            <option value="pembe">pembe</option>
+                            <option value="mor">mor</option>
+                            <option value="kırmızı">kırmızı</option>
+                            <option value="turkuaz">turkuaz</option>
+
+
+
+                        </select>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+
+

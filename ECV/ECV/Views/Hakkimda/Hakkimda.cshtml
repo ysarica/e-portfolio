@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Hakkimda";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ HAKKIMDA }
+@section sitemap{HAKKIMDA }
+@section title{HAKKIMDA}
+@model ECV.Models.Hakkimda
+
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">Hakkimda Duzenle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("Hakkimda", "Hakkimda", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Sayfa Başlık</label>
+                        <input type="text" class="form-control" id="sayfaBaslik" name="sayfaBaslik" value="@Model.sayfaBaslik" placeholder="Sayfa Baslik">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ad Soyad</label>
+                        <input type="text" class="form-control" id="adSoyad" name="adSoyad" value="@Model.adSoyad" placeholder="Ad Soyad">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Doğum Yılı</label>
+                        <input type="text" class="form-control" id="dogumYili" name="dogumYili" value="@Model.dogumYili" placeholder="Doğum Yılı">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mail</label>
+                        <input type="email" class="form-control" id="mail" name="mail" value="@Model.mail" placeholder="Mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">İl/İlçe</label>
+                        <input type="text" class="form-control" id="konum" name="konum" value="@Model.konum" placeholder="İl/İlçe">
+                    </div>
+                    <div class="form-group">
+                        <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                            
+                                <img src="@Model.pResim" class="img-fluid mb-2" alt="white sample" />
+                           
+                        </div>
+                        <label for="exampleInputFile">Resim Yükle</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="pResim" name="pResim">
+                                <label class="custom-file-label" for="exampleInputFile">Profil Resim</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">.PNG vb.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">CV PDF</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="cvLink" name="cvLink">
+                                <label class="custom-file-label" for="exampleInputFile">CV PDF</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">.PDF</span>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="mb-3">
+                        <textarea class="textarea" placeholder="Hakkında..." name="hakkimda1" id="hakkimda1"
+                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@Model.hakkimda1</textarea>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+              </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

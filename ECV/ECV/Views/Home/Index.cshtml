@@ -1,0 +1,1086 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!--preloader-->
+<div id='preloader'>
+
+    <div class='loader'>
+        <img src='/img/load.gif' alt='symp'>
+    </div>
+
+</div>
+<!--/preloader-->
+<!--=============================================================================
+    Front Section
+===============================================================================-->
+<section class='front-section'>
+
+    <div class='container'>
+
+
+        <div class='transition-mask'></div>
+
+        @Html.Action("_PResim", "Home")
+        @Html.Action("_Baslik", "Home")
+
+
+        <nav class='front-person-links'>
+
+            <!--
+                navigation links, data-section attribute points towards the section with id to be opened.
+            -->
+
+            <ul>
+
+                <li>
+                    <a href='#' data-section='about'>Hakkımda</a>
+                </li>
+
+                <li>
+                    <a href='#' data-section='resume'>Özgeçmişim</a>
+                </li>
+
+                <li>
+                    <a href='#' data-section='services'>Hizmetler</a>
+                </li>
+
+                <li>
+                    <a href='#' data-section='portfolio'>Portföy</a>
+                </li>
+
+                <li>
+                    <a href='/Home/Blog?kategoriAd=0'>Bloğum</a>
+                </li>
+
+                <li>
+                    <a href='#' data-section='contact'>Bana Ulaşın</a>
+                </li>
+                <li>
+                    <a href='#' data-section='contact'>İş Teklif Et</a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+
+        <div class='front-heading text-center'>
+
+            <h2>
+                @ViewBag.ad
+            </h2>
+
+
+
+        </div>
+
+
+    </div>
+
+</section>
+<!--=============================================================================
+    /Front Section
+===============================================================================-->
+<!--=============================================================================
+    About Section
+===============================================================================-->
+<section id='about' class='about-section section'>
+
+    @*-----HAKKIMDA BAŞLANGIÇ-----*@
+    @foreach (var a in ViewBag.hakkimda)
+    {
+        <div class='basic-info section-block'>
+
+            <div class='container'>
+
+                <div class='section-header text-center'>
+
+                    <h2>@a.sayfaBaslik</h2>
+
+                    <!--divider-->
+                    <div class='divider-draft center'></div>
+                    <!--/divider-->
+
+
+                </div>
+
+                <div class='row'>
+
+                    <div class='col-md-4'>
+                        <div class='about-person-img'>
+
+                            <img src='@a.pResim' alt='@a.adSoyad'>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class='col-md-8 about-info'>
+
+
+
+
+                        @Html.Raw(a.hakkimda1)
+
+                        <div class='clearfix'></div>
+
+
+                        <ul class='info-list'>
+
+                            <li>
+                                <div class='inner'>
+                                    <h4>Ad Soyad</h4>
+                                    <p>@a.adSoyad</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='inner'>
+                                    <h4>Yaş</h4>
+                                    @{int yas = Convert.ToInt32(DateTime.Now.Year) - Convert.ToInt32(a.dogumYili);}
+                                    <p>@yas</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='inner'>
+                                    <h4>Mail</h4>
+                                    <p><a href="mailto:@a.mail">@a.mail</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='inner'>
+                                    <h4>Konum</h4>
+                                    <p>@a.konum</p>
+                                </div>
+                            </li>
+
+
+
+                        </ul>
+
+                        <a href='@a.cvLink' target="_blank" class='symp-btn'>CV Görüntüle</a>
+
+                        <a href='@a.cvLink' download="" class='symp-btn link-btn'><i class='ion-ios-download'></i>CV İndir</a>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+                                        }
+    @*-----HAKKIMDA BİTİŞ-----*@
+    @*-----HİZMETLER HİZMETLER-----*@
+    <div class='about-icons section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+                @foreach (var b in ViewBag.hizmetler)
+                {
+
+                    <div class='col-md-3'>
+                        <div class='service'>
+
+                            <div class='icon'>
+                                <i class='@b.icon'></i>
+                            </div>
+
+                            <div class='content'>
+
+                                <h4>@b.baslik</h4>
+
+                                <p>
+                                    @b.aciklama
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    @*-----HİZMETLER BİTİŞ-----*@
+
+    <div class='funfacts-block section-block' data-stellar-background-ratio='.2'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-md-3 col-sm-6 funfact'>
+                    <div class='content'>
+                        <h4>0</h4>
+                        <p>Kazanılan Ödüller</p>
+                    </div>
+                </div>
+
+                <div class='col-md-3 col-sm-6 funfact'>
+                    <div class='content'>
+                        <h4>845</h4>
+                        <p>Mutlu Müşteri</p>
+                    </div>
+                </div>
+
+                <div class='col-md-3 col-sm-6 funfact'>
+                    <div class='content'>
+                        <h4>938</h4>
+                        <p>Bitirilen İş</p>
+                    </div>
+                </div>
+
+                <div class='col-md-3 col-sm-6 funfact'>
+                    <div class='content'>
+                        <h4>342</h4>
+                        <p>Oynanan Oyun</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @*-----YORUMLAR BAŞLANGIÇ-----*@
+    <div class='testimonials-block section-block'>
+        <div class='container'>
+
+            <div class='section-header text-center'>
+
+                <h2 class='animate text-over-block'>Yorumlar</h2>
+
+
+                <!--divider-->
+                <div class='divider-draft center'></div>
+                <!--/divider-->
+
+
+            </div>
+
+            <div class='row'>
+
+                <div class='col-md-8 col-md-offset-2'>
+
+                    <div class='testimonials-slider'>
+
+                        @foreach (var f in ViewBag.yorum)
+                        {
+                        <div class='testimonial'>
+                            <p>
+
+                                @f.yorum1
+                            </p>
+
+                            <div class='author'>
+                                <h4>@f.adSoyad</h4>
+                                <p>@f.unvan</p>
+                            </div>
+                        </div>
+                        }
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    @*-----YORUMLAR BİTİŞ-----*@
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                                {
+                                <li>
+                                    <a href='@d.link'>
+                                        <i class='ion-social-@d.icon'></i>
+                                    </a>
+                                </li>
+                                }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+</section>
+<!--=============================================================================
+    /About Section
+===============================================================================-->
+<!--=============================================================================
+    Resume Section
+===============================================================================-->
+<section id='resume' class='resume-section section'>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 col-md-offset-3'>
+                <div class='section-header text-center'>
+
+                    <h2 class='animate text-over-block'>Özgeçmiş (CV)</h2>
+
+                    <!--divider-->
+                    <div class='divider-draft center'></div>
+                    <!--/divider-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='timeline-block section-block'>
+        <div class='container'>
+            <ul class='timeline'>
+
+                <li class='timeline-header'>
+                    <h4>Eğitim</h4>
+                </li>
+                @{  int c = 0;
+                    foreach (var b in ViewBag.egitim)
+                    {
+                        c++;
+                        if (c % 2 == 0)
+                        {
+                            <li>
+
+                                <div class='timeline-desc'>
+
+                                    <h4>@b.yil</h4>
+
+                                </div>
+
+                                <div class='timeline-content'>
+
+                                    <h4>@b.egitimTürü</h4>
+                                    <span>@b.okul</span>
+
+                                    <p>
+                                        @b.bölüm
+                                    </p>
+
+                                </div>
+
+                            </li>
+                        }
+                        else
+                        {
+                            <li class='inverse'>
+
+                                <div class='timeline-desc'>
+
+                                    <h4>@b.yil</h4>
+
+                                </div>
+
+                                <div class='timeline-content'>
+
+                                    <h4>@b.egitimTürü</h4>
+                                    <span>@b.okul</span>
+
+                                    <p>
+                                        @b.bölüm
+                                    </p>
+
+                                </div>
+
+                            </li>
+                        }
+                    }
+
+                }
+
+
+
+
+                <li class='timeline-header'>
+                    <h4>Deneyim</h4>
+                </li>
+                @{ int k = 0;
+                    foreach (var z in ViewBag.deneyim)
+                    {
+                        k++;
+                        if (k % 2 == 0)
+                        {
+                            <li>
+
+                                <div class='timeline-desc'>
+
+                                    <h4>@z.yil</h4>
+
+                                </div>
+
+                                <div class='timeline-content'>
+
+                                    <h4>@z.unvan</h4>
+                                    <span>@z.firmaAdi</span>
+
+                                    <p>
+                                        @z.tecrübe
+                                    </p>
+
+                                </div>
+
+                            </li>
+                        }
+                        else
+                        {
+                            <li class='inverse'>
+
+                                <div class='timeline-desc'>
+
+                                    <h4>@z.yil</h4>
+
+                                </div>
+
+                                <div class='timeline-content'>
+
+                                    <h4>@z.unvan</h4>
+                                    <span>@z.firmaAdi</span>
+
+                                    <p>
+                                        @z.tecrübe
+                                    </p>
+
+                                </div>
+
+                            </li>
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class='hobbies-block bg-lightgray section-block'>
+        <div class='container'>
+
+            <div class='section-header text-center'>
+                <h2 class='animate text-over-block'>Hobilerim</h2>
+                <!--divider-->
+                <div class='divider-draft center'></div>
+                <!--/divider-->
+            </div>
+
+            <div class='row'>
+
+                @foreach (var a in ViewBag.hobi)
+                {
+                    <div class='col-md-2 col-sm-4 col-xs-6'>
+
+                        <div class='hobby'>
+
+                            <div class='icon'>
+                                <i class='@a.icon'></i>
+                            </div>
+
+                            <h4>@a.hobi</h4>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class='skills-block section-block'>
+
+        <div class='container'>
+
+            <div class='section-header text-center'>
+                <h2 class='animate text-over-block'>Beceriler</h2>
+
+                <!--divider-->
+                <div class='divider-draft center'></div>
+                <!--/divider-->
+
+            </div>
+
+
+            <div class='row'>
+
+
+
+                @foreach (var m in ViewBag.beceri)
+                {
+                    <div class='col-md-6'>
+                        <div class='skill'>
+
+                            <h4>@m.adi</h4>
+
+                            <div class='skill-bar' data-percent='@m.yüzde'>
+                                <div class='bar'>
+                                    <div class='percent'>@m.yüzde%</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                        {
+                            <li>
+                                <a href='@d.link'>
+                                    <i class='ion-social-@d.icon'></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+
+</section>
+<!--=============================================================================
+    /Resume Section
+===============================================================================-->
+<!--=============================================================================
+    Services Section
+===============================================================================-->
+<section id='services' class='services-section section'>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 col-md-offset-3'>
+                <div class='section-header main-title text-center'>
+
+                    <h2 class='animate text-over-block'>Hizmetler</h2>
+
+                    <!--divider-->
+                    <div class='divider-draft center'></div>
+                    <!--/divider-->
+
+                    <p>
+                        Yüksek kalitede hizmet veriyorum. Verdiğim hizmetlerim aşağıda listelenmiştir. Onları beğeneceğinizi umuyorum.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='services-block section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+                @foreach (var b in ViewBag.hizmetler)
+                {
+
+                    <div class='col-md-3'>
+                        <div class='service'>
+
+                            <div class='icon'>
+                                <i class='@b.icon'></i>
+                            </div>
+
+                            <div class='content'>
+
+                                <h4>@b.baslik</h4>
+
+                                <p>
+                                    @b.aciklama
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class='process-block bg-lightgray section-block'>
+        <div class='container'>
+
+            <div class='section-header text-center'>
+                <h2>Nasıl Çalışıyorum</h2>
+                <!--divider-->
+                <div class='divider-draft center'></div>
+                <!--/divider-->
+            </div>
+
+            <div class='row'>
+                @{ int j = 0;
+                    foreach (var s in ViewBag.surec)
+                    {
+                        j++;
+
+                        <div class='col-md-3'>
+
+                            <div class='process'>
+
+                                <div class='number'>
+                                    <span>@j</span>
+                                </div>
+
+                                <div class='content'>
+
+                                    <h4>@s.baslik</h4>
+
+                                    <p>
+                                        @s.aciklama
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+
+
+                }
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @*-----YORUMLAR BAŞLANGIÇ-----*@
+    <div class='testimonials-block section-block'>
+        <div class='container'>
+
+            <div class='section-header text-center'>
+
+                <h2 class='animate text-over-block'>Yorumlar</h2>
+
+
+                <!--divider-->
+                <div class='divider-draft center'></div>
+                <!--/divider-->
+
+
+            </div>
+
+            <div class='row'>
+
+                <div class='col-md-8 col-md-offset-2'>
+
+                    <div class='testimonials-slider'>
+
+                        @foreach (var f in ViewBag.yorum)
+                        {
+                            <div class='testimonial'>
+                                <p>
+
+                                    @f.yorum1
+                                </p>
+
+                                <div class='author'>
+                                    <h4>@f.adSoyad</h4>
+                                    <p>@f.unvan</p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    @*-----YORUMLAR BİTİŞ-----*@
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                        {
+                            <li>
+                                <a href='@d.link'>
+                                    <i class='ion-social-@d.icon'></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+</section>
+<!--=============================================================================
+    /Services Section
+===============================================================================-->
+<!--=============================================================================
+    Portfolio Section
+===============================================================================-->
+<section id='portfolio' class='portfolio-section section'>
+
+    <div class='portfolio-block section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+                <div class='col-md-6 col-md-offset-3'>
+
+                    <div class='section-header text-center'>
+
+                        <h2 class='animate text-over-block'>PORTFOY</h2>
+
+                        <!--divider-->
+                        <div class='divider-draft center'></div>
+                        <!--/divider-->
+
+                        <p>
+
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div id='portfolio-filters'>
+                <ul>
+                    <li>
+                        <a href='#' data-group='all' class='active'>Tümü</a>
+                    </li>
+                    @foreach (var pk in ViewBag.pkategori)
+                    {
+                        <li>
+                            <a href='#' data-group='@pk.kategoriAdi'>@pk.kategoriAdi</a>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+
+            <div id='portfolio-grid' class='portfolio-items'>
+
+                @foreach (var p in ViewBag.port)
+                {
+                    <div class='item' data-groups='["all","@p.kategori"]'>
+                        <div class='inner'>
+
+                            <img alt='@p.kime' src='@p.resim'>
+
+                            <div class='caption'>
+
+                                <div class='caption-inner'>
+
+                                    <h4>@p.kime</h4>
+
+                                    <ul class='links'>
+
+                                        <li>
+                                            <a href='/Home/Portfolio?PID=@p.PID'>
+                                                <i class='ion-ios-plus-empty'></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href='@p.resim' class='image-link'>
+                                                <i class='ion-ios-search'></i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                        {
+                            <li>
+                                <a href='@d.link'>
+                                    <i class='ion-social-@d.icon'></i>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+</section>
+<!--=============================================================================
+    /Portfolio Section
+===============================================================================-->
+<!--=============================================================================
+    Contact Section
+===============================================================================-->
+<section id='contact' class='contact-section section'>
+
+    <div class='contact-block section-block'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-6 col-md-offset-3'>
+
+                    <div class='section-header text-center'>
+                        <h2 class='animate text-over-block'>Bana Ulaşın</h2>
+                        <!--divider-->
+                        <div class='divider-draft center'></div>
+                        <!--/divider-->
+                        <p>
+                            Serbest çalışmaya müsaitim. Bir şeyin inşa edilmesini veya sadece merhaba demek için bana mesaj atmaktan çekinmeyin.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-md-8 col-md-offset-2'>
+
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+                            {
+                            <div id='contact-form-result'></div>
+
+                            <div class='row'>
+
+                                <div class='col-md-6'>
+
+                                    <div class='form-group'>
+                                        <input type='text' id="adSoyad" name="adSoyad" class='form-control' placeholder='Ad Soyad' required>
+
+                                        <div class='help-block with-errors'></div>
+                                    </div>
+
+                                </div>
+
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <input type='email' class='form-control' placeholder='Email' id="mail" name="mail" required>
+
+                                        <div class='help-block with-errors'></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class='row'>
+
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <input type='text' class='form-control' placeholder='Telefon' id="tel" name="tel" required>
+                                        <div class='help-block with-errors'></div>
+
+                                    </div>
+                                </div>
+
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <input type='text' class='form-control' placeholder='Konu' id="konu" name="konu" required>
+                                        <div class='help-block with-errors'></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class='form-group'>
+                                <textarea rows='5' class='form-control' placeholder='Mesajınız' id="mesaj" name="mesaj" required></textarea>
+                                <div class='help-block with-errors'></div>
+                            </div>
+
+                            <div class='form-group text-center'>
+                                <button type='submit' class='symp-btn'>Mesaj Gönder</button>
+                            </div>
+
+
+                            }
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    @*-----FOOTER BAŞLANGIÇ-----*@
+    <div class='footer bg-lightgray section-block'>
+
+        <div class='container'>
+
+            <div class='row'>
+
+                <div class='col-xs-6 text-left'>
+                    <h4>@ViewBag.ad</h4>
+                </div>
+
+                <div class='col-xs-6 text-right'>
+                    <ul class='footer-social'>
+                        @foreach (var d in ViewBag.sosyal)
+                                {
+                                <li>
+                                    <a target="_blank" href='@d.link'>
+                                        <i class='ion-social-@d.icon'></i>
+                                    </a>
+                                </li>
+                                }
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    @*-----FOOTER BİTİŞ-----*@
+
+
+</section>
+<!--=============================================================================
+    /Contact Section
+===============================================================================-->
+<!--close button-->
+<div class='close-btn'>
+    <span></span>
+    <span></span>
+</div>
+<!--/close button-->
+<!--=============================================================================
+    /Main Wrapper
+===============================================================================-->

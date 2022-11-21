@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ECV.Models.Portfoy>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">PORTFOY Listeleniyor</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                        <th>Resim</th>
+                        <th>Tarih</th>
+                        <th>Kime</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.PID</td>
+                            <td>@item.kategori</td>
+                            <td><img src="@item.resim" height="60" width="100" /></td>
+                            <td>@item.tarih</td>
+                            <td>@item.kime</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="/Portfoy/PortfoySil?PID=@item.PID" class="btn btn-danger">Sil</a>
+                                    <a href="/Portfoy/PortfoyDuzenle?PID=@item.PID" class="btn btn-warning">Düzenle</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                        <th>Resim</th>
+                        <th>Tarih</th>
+                        <th>Kime</th>
+                        <th>İşlem</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+</div>
+

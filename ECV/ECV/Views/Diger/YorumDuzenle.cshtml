@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "YorumDuzenle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+@section Baslik{ YORUM DÜZENLE }
+@section sitemap{YORUM DÜZENLE }
+@section title{YORUM DÜZENLE}
+@model ECV.Models.Yorum
+
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">YORUM DÜZENLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("YorumDuzenle", "Diger", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            { @Html.HiddenFor(m => m.YID)
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Ad Soyad</label>
+                        <input type="text" class="form-control" id="adSoyad" name="adSoyad" value="@Model.adSoyad">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Unvan</label>
+                        <input type="text" class="form-control" id="unvan" name="unvan" value="@Model.unvan">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Yorum</label>
+                        <input type="text" class="form-control" id="yorum1" name="yorum1" value="@Model.yorum1">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+
+

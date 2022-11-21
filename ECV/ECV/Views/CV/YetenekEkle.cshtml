@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "YetenekEkle";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+
+@section Baslik{ YETENEK EKLE }
+@section sitemap{YETENEK EKLE }
+@section title{YETENEK EKLE}
+@model ECV.Models.Yetenekler
+
+@Html.Action("_YetenekListe", "CV")
+
+
+<div class="col-md-12">
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title">YETENEK EKLE</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("YetenekEkle", "CV", FormMethod.Post, new { @class = "form-horizontal", @id = "form_sample_1", @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Yetenek Adı</label>
+                        <input type="text" class="form-control" id="adi" name="adi" value="" placeholder="Ör:Excel">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Yüzde</label>
+                        <input type="text" class="form-control" id="yüzde" name="yüzde" value="" placeholder="Ör:60">
+                    </div>
+               
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
